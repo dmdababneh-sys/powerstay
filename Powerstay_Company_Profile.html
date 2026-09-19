@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Powerstay - Corporate Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#070f1f', /* Even darker navy for extreme luxury */
+            accent: '#d4af37',
+            gold: {
+              light: '#f9ecd3',
+              DEFAULT: '#d4af37',
+              dark: '#997a15',
+            },
+            slate: {
+              50: '#fafafa',
+              100: '#f4f4f5',
+              200: '#e4e4e7',
+              300: '#d4d4d8',
+              800: '#27272a',
+              900: '#18181b',
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Cinzel', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #cbd5e1;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      margin: 0;
+      padding: 40px 0;
+    }
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto 30px auto;
+      background: white;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      box-sizing: border-box;
+    }
+    
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+      .a4-page {
+        margin: 0;
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm;
+        page-break-after: always;
+      }
+      #print-btn {
+        display: none !important;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+
+    .page-content {
+      padding: 25mm 25mm;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .page-footer {
+      position: absolute;
+      bottom: 15mm;
+      left: 25mm;
+      right: 25mm;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #e4e4e7;
+      padding-top: 5mm;
+      font-size: 7.5pt;
+      color: #71717a;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased">
+
+  <!-- Print Button (Web only) -->
+  <div id="print-btn" class="fixed top-8 right-8 z-50">
+    <button onclick="window.print()" class="bg-accent text-white px-6 py-3 rounded shadow-lg font-bold tracking-widest uppercase text-xs flex items-center gap-2 hover:bg-gold-dark transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / PDF
+    </button>
+  </div>
+
+  <!-- Cover Page -->
+  <div class="a4-page bg-primary text-white">
+    <div class="absolute inset-0 bg-[url('assets/images/hero.jpg')] bg-cover bg-center opacity-30 mix-blend-luminosity"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary via-transparent to-transparent opacity-80"></div>
+    
+    <div class="relative z-10 h-full flex flex-col justify-between p-[30mm]">
+      <div class="flex justify-center mt-10">
+        <img src="assets/images/main-logo.png" alt="Powerstay Logo" class="h-24 object-contain" style="filter: brightness(0) invert(1);">
+      </div>
+      
+      <div class="text-center mb-10">
+        <h1 class="text-5xl font-serif font-bold mb-6 tracking-widest leading-tight uppercase">Corporate<br>Profile</h1>
+        <div class="w-24 h-[1px] bg-accent mx-auto mb-6"></div>
+        <p class="text-[10pt] font-light text-gold-light tracking-[0.3em] uppercase">Hotel Asset Management & Operations</p>
+      </div>
+
+      <div class="flex justify-between items-end border-t border-white/20 pt-8 pb-10">
+        <div>
+          <p class="text-[8pt] font-light text-slate-300 tracking-widest uppercase mb-1">Amman • Muscat • Paris</p>
+          <p class="text-[7pt] text-slate-500 tracking-widest uppercase">Proprietary & Confidential</p>
+        </div>
+        <div class="text-right">
+          <p class="text-[9pt] font-bold text-accent tracking-widest uppercase">www.powerstay.site</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Gold Trim Bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-2 bg-accent"></div>
+  </div>
+
+  <!-- Page 1: Executive Overview -->
+  <div class="a4-page">
+    <div class="page-content">
+      
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-16 border-b border-slate-200 pb-4">
+        <img src="assets/images/main-logo.png" alt="Powerstay" class="h-6 object-contain opacity-80" style="filter: brightness(0);">
+        <span class="text-[7pt] font-bold tracking-[0.2em] uppercase text-accent">Executive Overview</span>
+      </div>
+
+      <div class="flex-grow flex flex-col justify-center">
+        <!-- Main Statement -->
+        <div class="mb-14">
+          <h2 class="text-[26pt] font-serif text-primary font-bold mb-6 leading-tight uppercase tracking-wide">Redefining<br>Hospitality Returns.</h2>
+          <div class="w-16 h-[2px] bg-accent mb-8"></div>
+          
+          <div class="columns-2 gap-10">
+            <p class="text-[10pt] leading-[2] text-slate-600 mb-6 text-justify">
+              Powerstay is the premier hospitality partner in the Middle East for hotel owners seeking guaranteed returns and flawless operational execution. We bridge the critical gap between traditional real estate investment and the complex demands of modern hospitality management.
+            </p>
+            <p class="text-[10pt] leading-[2] text-slate-600 mb-6 text-justify">
+              Whether operating under a fixed-income guarantee or a dynamic revenue-growth management model, we turn physical spaces into highly stabilized, high-yield assets. Our approach is uniquely analytical, removing the emotional bloat from hospitality to focus purely on measurable asset performance and capitalization rate growth.
+            </p>
+          </div>
+        </div>
+
+        <!-- Image & Leadership Block replacing standing man with a highly professional interior -->
+        <div class="flex gap-8 items-stretch h-[110mm]">
+          <!-- Professional Image -->
+          <div class="w-[55%] relative rounded-sm overflow-hidden shadow-xl">
+            <img src="assets/images/room.jpg" alt="Luxury Interior" class="absolute inset-0 w-full h-full object-cover">
+            <!-- Subtle gradient overlay on image for richness -->
+            <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+          </div>
+          
+          <!-- Leadership Box -->
+          <div class="w-[45%] bg-primary text-white p-8 rounded-sm shadow-xl flex flex-col justify-center relative">
+            <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-accent m-4 opacity-50"></div>
+            <div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-accent m-4 opacity-50"></div>
+            
+            <span class="text-[7pt] text-accent tracking-widest uppercase mb-4 block">Leadership Framework</span>
+            <h3 class="text-[14pt] font-serif font-bold mb-4">Driven by Discipline</h3>
+            <p class="text-[9pt] text-slate-300 leading-[1.8] text-justify mb-6">
+              Founded by Mr. Hani Odeh, Powerstay brings real organizational discipline to hotel operations. Coming from outside the traditional hospitality echo-chamber, we deploy a highly organized, data-driven approach to property management.
+            </p>
+            <p class="text-[9pt] text-slate-300 leading-[1.8] text-justify">
+              Under his executive leadership, we focus relentlessly on rigorous cost-control, dynamic revenue architecture, and uncompromising service standards.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Powerstay Corporate Profile</span>
+        <span>Page 01</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 2: Operational Architecture & KPIs -->
+  <div class="a4-page">
+    <div class="page-content">
+      
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-12 border-b border-slate-200 pb-4">
+        <img src="assets/images/main-logo.png" alt="Powerstay" class="h-6 object-contain opacity-80" style="filter: brightness(0);">
+        <span class="text-[7pt] font-bold tracking-[0.2em] uppercase text-accent">Operational Infrastructure</span>
+      </div>
+
+      <div class="flex-grow">
+        
+        <!-- Intro -->
+        <div class="mb-10 flex gap-8">
+          <div class="w-1/3">
+            <h2 class="text-[20pt] font-serif text-primary font-bold mb-4 leading-tight uppercase">The<br>Operational<br>Matrix</h2>
+            <div class="w-12 h-[2px] bg-accent"></div>
+          </div>
+          <div class="w-2/3 flex items-center">
+            <p class="text-[10pt] text-slate-600 leading-[1.8] text-justify border-l border-slate-200 pl-6">
+              Our operations are driven by quantifiable success. We do not rely on guesswork. Our central command continuously monitors, analyzes, and optimizes our Key Performance Indicators (KPIs) to ensure maximum asset value, lean cost efficiency, and exceptional service delivery at every touchpoint.
+            </p>
+          </div>
+        </div>
+
+        <!-- KPI Dashboard Style -->
+        <div class="grid grid-cols-4 gap-0 mb-12 border border-slate-200 rounded-sm overflow-hidden shadow-sm">
+          <div class="bg-white p-6 text-center border-r border-slate-200">
+            <p class="text-[7pt] text-slate-400 uppercase tracking-widest font-bold mb-2">Metric 01</p>
+            <h4 class="text-[18pt] font-serif font-bold text-primary mb-1">RevPAR</h4>
+            <p class="text-[8pt] text-accent uppercase tracking-widest font-semibold">Revenue Per Room</p>
+          </div>
+          <div class="bg-slate-50 p-6 text-center border-r border-slate-200">
+            <p class="text-[7pt] text-slate-400 uppercase tracking-widest font-bold mb-2">Metric 02</p>
+            <h4 class="text-[18pt] font-serif font-bold text-primary mb-1">GOPPAR</h4>
+            <p class="text-[8pt] text-accent uppercase tracking-widest font-semibold">Gross Op. Profit</p>
+          </div>
+          <div class="bg-white p-6 text-center border-r border-slate-200">
+            <p class="text-[7pt] text-slate-400 uppercase tracking-widest font-bold mb-2">Metric 03</p>
+            <h4 class="text-[18pt] font-serif font-bold text-primary mb-1">ADR</h4>
+            <p class="text-[8pt] text-accent uppercase tracking-widest font-semibold">Avg Daily Rate</p>
+          </div>
+          <div class="bg-slate-50 p-6 text-center">
+            <p class="text-[7pt] text-slate-400 uppercase tracking-widest font-bold mb-2">Metric 04</p>
+            <h4 class="text-[18pt] font-serif font-bold text-primary mb-1">GSS</h4>
+            <p class="text-[8pt] text-accent uppercase tracking-widest font-semibold">Guest Satisfaction</p>
+          </div>
+        </div>
+
+        <!-- The 3 Pillars with refined design -->
+        <div class="space-y-6">
+          
+          <div class="flex gap-6 items-stretch border border-slate-200 p-6 rounded-sm bg-white shadow-sm hover:border-accent transition-colors">
+            <div class="w-14 flex flex-col items-center justify-center shrink-0 border-r border-slate-100 pr-6">
+              <span class="text-[20pt] font-serif text-slate-200 font-bold">01</span>
+            </div>
+            <div>
+              <h3 class="text-[12pt] font-serif font-bold text-primary mb-2 uppercase tracking-wide">Expert Hotel Management</h3>
+              <p class="text-[9.5pt] text-slate-600 leading-[1.8] text-justify">Our seasoned General Managers and operational directors are recruited from top-tier international hospitality brands. They strictly enforce rigorous SOPs (Standard Operating Procedures) across all departments, ensuring immaculate 5-star cleanliness, seamless guest workflows, and premium front-of-house interactions.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-stretch border border-slate-200 p-6 rounded-sm bg-white shadow-sm hover:border-accent transition-colors">
+            <div class="w-14 flex flex-col items-center justify-center shrink-0 border-r border-slate-100 pr-6">
+              <span class="text-[20pt] font-serif text-slate-200 font-bold">02</span>
+            </div>
+            <div>
+              <h3 class="text-[12pt] font-serif font-bold text-primary mb-2 uppercase tracking-wide">Revenue Optimization (RevPRO)</h3>
+              <p class="text-[9.5pt] text-slate-600 leading-[1.8] text-justify">Our specialized Revenue Management unit does not rest. We continuously analyze micro-market trends, competitor pricing matrices, and global demand forecasts. By leveraging dynamic pricing algorithms and agile inventory controls, we aggressively maximize Average Daily Rate (ADR) and RevPAR to yield the absolute highest returns.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-stretch border border-slate-200 p-6 rounded-sm bg-white shadow-sm hover:border-accent transition-colors">
+            <div class="w-14 flex flex-col items-center justify-center shrink-0 border-r border-slate-100 pr-6">
+              <span class="text-[20pt] font-serif text-slate-200 font-bold">03</span>
+            </div>
+            <div>
+              <h3 class="text-[12pt] font-serif font-bold text-primary mb-2 uppercase tracking-wide">Facility Engineering & Preservation</h3>
+              <p class="text-[9.5pt] text-slate-600 leading-[1.8] text-justify">Protecting the physical asset is a non-negotiable priority. We deploy a rapid-response engineering team capable of advanced preventative maintenance, strategic CapEx planning, and immediate life-safety troubleshooting, guaranteeing the property's structural lifecycle is extended and its valuation is preserved.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <span>Powerstay Corporate Profile</span>
+        <span>Page 02</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 3: Portfolio & Directory -->
+  <div class="a4-page">
+    <div class="page-content">
+      
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-12 border-b border-slate-200 pb-4">
+        <img src="assets/images/main-logo.png" alt="Powerstay" class="h-6 object-contain opacity-80" style="filter: brightness(0);">
+        <span class="text-[7pt] font-bold tracking-[0.2em] uppercase text-accent">Portfolio & Network</span>
+      </div>
+
+      <div class="flex-grow flex flex-col">
+        
+        <h2 class="text-[20pt] font-serif text-primary font-bold mb-8 uppercase">Asset Portfolio Highlight</h2>
+        
+        <!-- Portfolio Images with sleek captions -->
+        <div class="grid grid-cols-2 gap-8 mb-auto">
+          <div class="group">
+            <div class="h-44 bg-slate-200 overflow-hidden mb-4 relative">
+              <img src="assets/images/arenaspace.jpg" alt="Arena Space Jordan" class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute inset-0 bg-primary/20"></div>
+            </div>
+            <div class="flex justify-between items-end border-b border-slate-200 pb-2 mb-2">
+              <h3 class="text-[12pt] font-serif font-bold text-primary">Arena Space Hotel</h3>
+              <span class="text-[7pt] text-accent font-bold uppercase tracking-widest">Amman, JO</span>
+            </div>
+            <p class="text-[9pt] text-slate-600 leading-relaxed text-justify">A high-capacity premier destination requiring advanced operational oversight and high-volume dynamic revenue management.</p>
+          </div>
+          
+          <div class="group">
+            <div class="h-44 bg-slate-200 overflow-hidden mb-4 relative">
+              <img src="assets/images/ammanwest.jpg" alt="Amman West" class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute inset-0 bg-primary/20"></div>
+            </div>
+            <div class="flex justify-between items-end border-b border-slate-200 pb-2 mb-2">
+              <h3 class="text-[12pt] font-serif font-bold text-primary">Amman West Hotel</h3>
+              <span class="text-[7pt] text-accent font-bold uppercase tracking-widest">Amman, JO</span>
+            </div>
+            <p class="text-[9pt] text-slate-600 leading-relaxed text-justify">An elegant boutique corporate property strictly optimized for high ADR performance and exceptional guest satisfaction scores.</p>
+          </div>
+        </div>
+
+        <!-- Global Directory -->
+        <div class="mt-12">
+          <h2 class="text-[20pt] font-serif text-primary font-bold mb-6 uppercase">Global Directory</h2>
+          
+          <div class="bg-primary text-white rounded-sm shadow-xl overflow-hidden flex">
+            <!-- Left Panel: Executive -->
+            <div class="w-1/3 p-8 border-r border-white/10 bg-gradient-to-br from-primary to-slate-900">
+              <h4 class="text-[7pt] font-bold uppercase tracking-[0.2em] text-accent mb-6 border-b border-white/20 pb-3">Executive Directors</h4>
+              
+              <div class="space-y-6">
+                <div>
+                  <p class="text-[11pt] font-serif font-bold tracking-wide">Mr. Hani Odeh</p>
+                  <p class="text-[9pt] font-mono text-slate-300 mt-2 tracking-wider">+962 7 9854 0860</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Regional -->
+            <div class="w-2/3 p-8 bg-slate-50 text-slate-800">
+              <div class="grid grid-cols-2 gap-8 h-full">
+                
+                <div>
+                  <h4 class="text-[7pt] font-bold uppercase tracking-[0.2em] text-accent mb-6 border-b border-slate-200 pb-3">Europe Representative</h4>
+                  <div>
+                    <p class="text-[10pt] font-bold text-primary tracking-wide">France</p>
+                    <p class="text-[8pt] text-slate-500 mt-1 uppercase tracking-widest">Mr. Loui Al-Daoud</p>
+                    <p class="text-[9pt] font-mono text-primary font-medium mt-2 tracking-wider">+33 6 1049 7842</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-[7pt] font-bold uppercase tracking-[0.2em] text-accent mb-6 border-b border-slate-200 pb-3">Regional Hubs</h4>
+                  <div class="space-y-4">
+                    <div>
+                      <p class="text-[10pt] font-bold text-primary tracking-wide">Amman, Jordan</p>
+                      <p class="text-[8pt] text-slate-500 mt-1 uppercase tracking-widest">Corporate Headquarters</p>
+                    </div>
+                    <div>
+                      <p class="text-[10pt] font-bold text-primary tracking-wide">Muscat, Oman</p>
+                      <p class="text-[8pt] text-slate-500 mt-1 uppercase tracking-widest">Horizon & Saltos Co.</p>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="page-footer">
+        <span>Powerstay Corporate Profile</span>
+        <span>Page 03</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

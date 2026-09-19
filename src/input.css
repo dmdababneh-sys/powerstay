@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply danial-dababneh-bwd-bg-background danial-dababneh-bwd-text-foreground danial-dababneh-bwd-font-sans danial-dababneh-bwd-antialiased;
+  }
+}
+
+/* Preloader styles */
+#preloader {
+  transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
